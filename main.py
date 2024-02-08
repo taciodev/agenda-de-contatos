@@ -1,6 +1,19 @@
+import re
+
+
+def validate_contact_email(contact_email):
+    pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    is_compatible = re.search(pattern, contact_email)
+    if is_compatible is None:
+        return False
+
+    return True
+
 
 def add_new_contact(contact_list, contact_name, contact_phone, contact_email):
-    ...
+    contact = {"name": contact_name,
+               "telephone": contact_phone, "email": contact_email, "favorite": False}
+    contact_list.append(contact)
 
 
 def view_all_contacts():
@@ -43,7 +56,21 @@ while True:
     option_chosen = input("\nDigite sua escolha: ")
 
     if option_chosen == "1":
-        ...
+        contact_name = input(
+            "Digite o nome do contato: ")
+        contact_phone = input(
+            "Digite o número do contato: ")
+        contact_email = input(
+            "Digite o email do contato: ")
+
+        is_email_valid = validate_contact_email(contact_email)
+        if is_email_valid and True:
+            add_new_contact(contacts, contact_name,
+                            contact_phone, contact_email)
+        else:
+            print(
+                "\n⚠️ INFORMAÇÃO INVÁLIDA. POR FAVOR, INSIRA UM TELEFONE OU E-MAIL VÁLIDO. ⚠️\n")
+
     elif option_chosen == "2":
         ...
     elif option_chosen == "3":
