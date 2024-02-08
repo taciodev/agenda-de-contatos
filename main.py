@@ -10,6 +10,15 @@ def validate_contact_email(contact_email):
     return True
 
 
+def validate_contact_phone(contact_phone):
+    pattern = r"^\d{11}$"
+    is_compatible = re.search(pattern, contact_phone)
+    if is_compatible is None:
+        return False
+
+    return True
+
+
 def add_new_contact(contact_list, contact_name, contact_phone, contact_email):
     contact = {"name": contact_name,
                "telephone": contact_phone, "email": contact_email, "favorite": False}
@@ -64,7 +73,8 @@ while True:
             "Digite o email do contato: ")
 
         is_email_valid = validate_contact_email(contact_email)
-        if is_email_valid and True:
+        is_phone_valid = validate_contact_phone(contact_phone)
+        if is_email_valid and is_phone_valid:
             add_new_contact(contacts, contact_name,
                             contact_phone, contact_email)
         else:
