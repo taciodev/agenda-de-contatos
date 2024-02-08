@@ -25,8 +25,16 @@ def add_new_contact(contact_list, contact_name, contact_phone, contact_email):
     contact_list.append(contact)
 
 
-def view_all_contacts():
-    ...
+def view_all_contacts(contact_list):
+    print("\nLISTA DE CONTATOS:\n")
+    print("+------+----------------------+----------------------+----------------------+----------------------+")
+    print("|  #   |        Nome          |       Telefone       |         Email        |      Favorito        |")
+    print("+------+----------------------+----------------------+----------------------+----------------------+")
+    for idx, contact in enumerate(contact_list, start=1):
+        favorite_mark = "★" if contact["favorite"] else " "
+        print(
+            f"| {idx:<4} | {contact['name']:<20} | {contact['telephone']:<20} | {contact['email']:^20} | {favorite_mark:<20} |")
+    print("+------+----------------------+----------------------+----------------------+----------------------+")
 
 
 def update_contact():
@@ -82,7 +90,7 @@ while True:
                 "\n⚠️ INFORMAÇÃO INVÁLIDA. POR FAVOR, INSIRA UM TELEFONE OU E-MAIL VÁLIDO. ⚠️\n")
 
     elif option_chosen == "2":
-        ...
+        view_all_contacts(contacts)
     elif option_chosen == "3":
         ...
     elif option_chosen == "4":
