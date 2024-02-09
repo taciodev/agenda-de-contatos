@@ -1,9 +1,9 @@
-import re
+from re import search
 
 
 def validate_contact_email(contact_email):
     pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-    is_compatible = re.search(pattern, contact_email)
+    is_compatible = search(pattern, contact_email)
     if is_compatible is None:
         return False
 
@@ -12,7 +12,7 @@ def validate_contact_email(contact_email):
 
 def validate_contact_phone(contact_phone):
     pattern = r"^\d{11}$"
-    is_compatible = re.search(pattern, contact_phone)
+    is_compatible = search(pattern, contact_phone)
     if is_compatible is None:
         return False
 
@@ -131,5 +131,6 @@ while True:
     elif option_chosen == "6":
         print("Saindo...")
         break
+
     else:
         print("\n⚠️ OPÇÃO INVÁLIDA. POR FAVOR, ESCOLHA UMA OPÇÃO VÁLIDA. ⚠️\n")
