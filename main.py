@@ -50,8 +50,14 @@ def update_contact(contact_list, contact_index, new_contact_phone, new_contact_e
         print("\n⚠️ OOOPS! HOUVE UM PROBLEMA AO TENTAR CONVERTER UM VALOR. VERIFIQUE SUA ENTRADA E TENTE NOVAMENTE. ⚠️\n")
 
 
-def remove_contact():
-    ...
+def remove_contact(contact_list, contact_index):
+    try:
+        adjusted_contact_index = int(contact_index) - 1
+        contact = contact_list[adjusted_contact_index]
+
+        contact_list.remove(contact)
+    except IndexError:
+        print("\n⚠️ OOOPS! ALGO DEU ERRADO AO ACESSAR UM ÍNDICE NA LISTA. POR FAVOR, VERIFIQUE SUA ENTRADA E TENTE NOVAMENTE. ⚠️\n")
 
 
 def favorite_contact():
@@ -106,7 +112,11 @@ while True:
                        new_contact_phone, new_contact_email)
 
     elif option_chosen == "4":
-        ...
+        contact_index = input(
+            "Digite o índice do contato que você deseja apagar da sua agenda: ")
+
+        remove_contact(contacts, contact_index)
+
     elif option_chosen == "5":
         ...
     elif option_chosen == "6":
