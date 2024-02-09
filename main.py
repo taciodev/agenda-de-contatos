@@ -37,8 +37,17 @@ def view_all_contacts(contact_list):
     print("+------+----------------------+----------------------+----------------------+----------------------+")
 
 
-def update_contact():
-    ...
+def update_contact(contact_list, contact_index, new_contact_phone, new_contact_email):
+    try:
+        adjusted_contact_index = int(contact_index) - 1
+        contact = contact_list[adjusted_contact_index]
+
+        contact["telephone"] = new_contact_phone
+        contact["email"] = new_contact_email
+    except IndexError:
+        print("\n⚠️ OOOPS! ALGO DEU ERRADO AO ACESSAR UM ÍNDICE NA LISTA. POR FAVOR, VERIFIQUE SUA ENTRADA E TENTE NOVAMENTE. ⚠️\n")
+    except ValueError:
+        print("\n⚠️ OOOPS! HOUVE UM PROBLEMA AO TENTAR CONVERTER UM VALOR. VERIFIQUE SUA ENTRADA E TENTE NOVAMENTE. ⚠️\n")
 
 
 def remove_contact():
@@ -50,13 +59,6 @@ def favorite_contact():
 
 
 contacts = []
-
-# {
-#     "name": String, # EXAMPLE - "Taciano"
-#     "telephone": Inteiro, # EXAMPLE - 71988963996
-#     "email": String, # EXAMPLE - "taciano@gmail.com"
-#     "favorite": Boolean, # EXAMPLE - False
-# }
 
 while True:
     print("\n***************************************************")
@@ -91,8 +93,18 @@ while True:
 
     elif option_chosen == "2":
         view_all_contacts(contacts)
+
     elif option_chosen == "3":
-        ...
+        contact_index = input(
+            "Digite o índice do contato que você deseja atualizar na sua agenda: ")
+        new_contact_phone = input(
+            "Digite o novo número do contato: ")
+        new_contact_email = input(
+            "Digite o novo email do contato: ")
+
+        update_contact(contacts, contact_index,
+                       new_contact_phone, new_contact_email)
+
     elif option_chosen == "4":
         ...
     elif option_chosen == "5":
