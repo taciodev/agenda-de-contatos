@@ -60,8 +60,13 @@ def remove_contact(contact_list, contact_index):
         print("\n⚠️ OOOPS! ALGO DEU ERRADO AO ACESSAR UM ÍNDICE NA LISTA. POR FAVOR, VERIFIQUE SUA ENTRADA E TENTE NOVAMENTE. ⚠️\n")
 
 
-def favorite_contact():
-    ...
+def favorite_contact(contact_list, contact_index):
+    try:
+        adjusted_contact_index = int(contact_index) - 1
+        contact = contact_list[adjusted_contact_index]
+        contact["favorite"] = not contact["favorite"]
+    except IndexError:
+        print("\n⚠️ OOOPS! ALGO DEU ERRADO AO ACESSAR UM ÍNDICE NA LISTA. POR FAVOR, VERIFIQUE SUA ENTRADA E TENTE NOVAMENTE. ⚠️\n")
 
 
 contacts = []
@@ -118,7 +123,11 @@ while True:
         remove_contact(contacts, contact_index)
 
     elif option_chosen == "5":
-        ...
+        contact_index = input(
+            "Digite o índice do contato que você deseja favoritar da sua agenda: ")
+
+        favorite_contact(contacts, contact_index)
+
     elif option_chosen == "6":
         print("Saindo...")
         break
