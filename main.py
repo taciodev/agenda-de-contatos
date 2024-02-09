@@ -79,7 +79,7 @@ while True:
     print("* 2. Ver Todos os Contatos                        *")
     print("* 3. Atualizar Contato                            *")
     print("* 4. Remover Contato                              *")
-    print("* 5. Marcar Contato como Favorito                 *")
+    print("* 5. Favoritar ou Desfavoritar Contato             *")
     print("* 6. Sair                                         *")
     print("***************************************************")
 
