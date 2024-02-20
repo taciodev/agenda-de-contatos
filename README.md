@@ -17,10 +17,6 @@ Desenvolvemos uma aplicação de agenda que permite ao usuário realizar as segu
 
 1. **Clonar o Repositório:**
 
-## Como Usar
-
-1. **Clonar o Repositório:**
-
    ```bash
    git clone https://github.com/taciodev/agenda-de-contatos.git
    ```
